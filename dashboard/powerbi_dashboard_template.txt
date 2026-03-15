@@ -1,0 +1,15 @@
+
+Power BI Dashboard Suggestion
+
+KPIs:
+
+Total Tickets
+Average Resolution Time
+Tickets by Category
+Tickets by Priority
+
+Charts:
+
+Bar chart → Tickets by category
+Line chart → Tickets over time
+Card → Avg resolution time

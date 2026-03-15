@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<style>
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --text: #1b263b;
+  --muted: #64778a;
+  --primary: #4f8bc9;
+  --secondary: #4abfbe;
+  --danger: #f16c69;
+  --shadow: 0 12px 28px rgba(19, 44, 66, 0.14);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #edf5fc 0%, #f3f8ff 100%);
+  color: var(--text);
+}
+
+.page-container {
+  width: min(96vw, 1100px);
+  margin: 1.2rem auto;
+  padding: 1rem;
+}
+
+.card {
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.7vw, 2rem);
+  color: #103f77;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.svg-container {
+  background: #f8fbff;
+  border-radius: 16px;
+  padding: 1rem;
+  position: relative;
+}
+
+.debug-msg { color: #cc1122; font-weight: 600; margin-top: 0.8rem; }
+
+.axis path,
+.axis line {
+  stroke: #c9d7ea;
+}
+
+.axis text {
+  fill: #5f758e;
+  font-size: 12px;
+}
+
+.bar {
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.13));
+}
+
+.tooltip {
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+.label, .value-label {
+  font-size: 13px;
+  fill: #1f334f;
+  font-weight: 600;
+}
+
+.value-label {
+  fill: #0e1f3c;
+}
+
+.legend {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+</style>
+</head>
+
+<body>
+<div class="page-container">
+  <h1>Ticket Categories - Bar Chart Race</h1>
+  <p class="subtitle">Visualização dinâmica de tickets por categoria ao longo do tempo, com animação suave e foco na comparação.</p>
+
+  <div class="card svg-container">
+    <svg width="900" height="500"></svg>
+    <p class="legend">Legenda: alturas representam o número de tickets, valores atualizados a cada intervalo.</p>
+  </div>
+  <p class="debug-msg" id="debugMessage"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
